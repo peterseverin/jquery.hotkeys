@@ -44,6 +44,13 @@ module.exports = function(grunt) {
         }
       }
     },
+    uglify: {
+      dist: {
+        files: {
+          'jquery.hotkeys.min.js': ['jquery.hotkeys.js']
+        }
+      }
+    },
     watch: {
       scripts: {
         files: ['**/*.js'],
@@ -68,6 +75,8 @@ module.exports = function(grunt) {
   // Running tests
   grunt.loadNpmTasks('grunt-contrib-jasmine');
 
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+
   // Task registration.
-  grunt.registerTask("default", ["jsbeautifier", "jshint", "jasmine"]);
+  grunt.registerTask("default", ["jsbeautifier", "jshint", "uglify", "jasmine"]);
 };
